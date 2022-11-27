@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1188</width>
+    <height>883</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>-9</y>
+     <width>1181</width>
+     <height>891</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/*表格的一种美化方式*/
+
+
+    QHeaderView::section
+{
+    font-size:20px;
+    font-family:&quot;Microsoft YaHei&quot;;
+    text-align:left;
+    min-height:49px;
+    max-height:49px;
+    margin-left:0px;
+    padding-left:0px;
+	border:1px solid #130c0e ;
+	font:Bold;
+	color:white;
+	background-color:rgb(20,100,160);
+
+}/*
+QBrush
+{
+color:red;
+}
+
+QHeaderView::section
+{
+    font-size:20px;
+    font-family:&quot;Microsoft YaHei&quot;;
+    color:#FFFFFF;
+    text-align:left;
+    min-height:49px;
+    max-height:49px;
+    margin-left:0px;
+    padding-left:0px;
+}*/
+
+/*background:#FFFFFF;
+QTableWidget
+{
+    border:none;
+    font-size:20px;
+    font-family:&quot;Microsoft YaHei&quot;;
+    color:rgb(25,35,45);
+}
+
+
+QTableWidget::item
+{
+    border-bottom:1px solid #EEF1F7 ;
+	color:rgb(25,35,45);
+}*/
+/*
+QTableWidget::item::selected
+{
+    color:#45b97c;
+}
+*/
+
+QScrollBar::handle:vertical
+{
+    background: rgba(255,255,255,20%);
+    border: 0px solid grey;
+    border-radius:3px;
+    width: 8px;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical
+{
+    background:rgba(255,255,255,10%);
+}
+
+
+QScollBar::add-line:vertical, QScrollBar::sub-line:vertical
+{
+    background:transparent;
+}
+</string>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <property name="selectionBehavior">
+    <enum>QAbstractItemView::SelectRows</enum>
+   </property>
+   <attribute name="horizontalHeaderCascadingSectionResizes">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderCascadingSectionResizes">
+    <bool>false</bool>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>序号</string>
+    </property>
+    <property name="font">
+     <font>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>捕获时间</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>源地址</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>目标地址</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>长度</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>类协议型</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>是否恶意</string>
+    </property>
+   </column>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
