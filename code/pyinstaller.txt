@@ -1,0 +1,1 @@
+pyinstaller -F -i 纯logo金.ico main.py --add-data ".\protocol\\*;.\protocol"
