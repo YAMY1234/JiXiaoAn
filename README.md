@@ -149,11 +149,11 @@ Xiaomi watch S1 smart watch
 
 ## 2.2.1.2 topology description
 
-***\ * Host server\ ****: Windows system computer, and set it as a WIFI hotspot, and then let our home devices are connected to this WIFI to form an Internet of Things, so that all device data Traffic through the server, and deploy Ji Xiaoan - Internet of Things network detection expert on the service.
+**Host server**: Windows system computer, and set it as a WIFI hotspot, and then let our home devices are connected to this WIFI to form an Internet of Things, so that all device data Traffic through the server, and deploy Ji Xiaoan - Internet of Things network detection expert on the service.
 
 The detection system will analyze the Traffic information of each device, and once it is found that there is a malicious attack that reaches a certain threshold, Traffic will issue an alert by e-mail, reminding relevant staff to pay attention to check the network environment and disconnect the network connection of related devices if necessary.
 
-***\ * Network intrusion topology example\ ****: The following is a proposed network intrusion topology, a hacker from the outside access or breakthrough connected to the network, and then send malicious network data to the camera 1, and then detected by our software, and then send an early warning message to the relevant personnel, and then by the relevant personnel to detect.
+**Network intrusion topology example**: The following is a proposed network intrusion topology, a hacker from the outside access or breakthrough connected to the network, and then send malicious network data to the camera 1, and then detected by our software, and then send an early warning message to the relevant personnel, and then by the relevant personnel to detect.
 
 ![img](./source_pic/wps5.jpg) 
 
@@ -323,13 +323,13 @@ If the malicious packet rate of a certain device reaches a certain threshold, a 
 
 This program is developed using Python, the Python version used is 3.8.6, the development tool is Pycharm, and the running platform is Windows10.
 
-***\ * Pyqt5 Front-end UI The framework implements the system to realize the page design. Adhering to the Interface Segregation Principle in the design process, an interface only does one thing, and a button only corresponds to one function, ensuring the program function decoupling, high Aggregation and low coupling. At the same time, it fully increases the code to reuse, showing that the data table of different devices uses the same class for design and reuse.
+**Pyqt5 Front-end UI The framework implements the system to realize the page design. Adhering to the Interface Segregation Principle in the design process, an interface only does one thing, and a button only corresponds to one function, ensuring the program function decoupling, high Aggregation and low coupling. At the same time, it fully increases the code to reuse, showing that the data table of different devices uses the same class for design and reuse.
 
-***\* SMTP The service realizes 163 mailbox email sending\ ****. We have registered a special account to send emails to system users to inform users of threatening content in a timely manner.
+***\* SMTP The service realizes 163 mailbox email sending**. We have registered a special account to send emails to system users to inform users of threatening content in a timely manner.
 
 Sqlite realizes front-end separation and data interaction. The program front-end display is separated from back-end network card data packet capture, prediction and other functions, and data transmission interacts through the Sqlite database.
 
-***\ * Multi-threading technology ensures front-end and back-end concurrent execution\ ****. Due to the simultaneous analysis and processing of traffic data of different IP corresponding IoT devices, as well as taking into account the system front-end display and mail sending, each part of the function needs to be coordinated through multi-threading technology to ensure the stable operation of the program.
+**Multi-threading technology ensures front-end and back-end concurrent execution**. Due to the simultaneous analysis and processing of traffic data of different IP corresponding IoT devices, as well as taking into account the system front-end display and mail sending, each part of the function needs to be coordinated through multi-threading technology to ensure the stable operation of the program.
 
 #### 2.2.3.4 SQL Database Description
 
@@ -501,7 +501,7 @@ Taken together, these results demonstrate the robustness of ESet. In particular,
 
 The stress testing of this experiment is mainly to check whether our system can run smoothly in a multi-device and high concurrent network environment. The main source of pressure lies in whether the system can capture the data packet in all network interface cards in time, whether the model prediction can be completed in time, whether the data can be written to the database in time, and whether the page update displayed by the front end can keep up with the data packet generation speed in the network environment. The final evaluation indicator is the time it takes to send the data to the front end page display.
 
-***\ * Test scene\ ****
+**Test scene**
 
 This Stress Testing uses 3 computers to connect to the same server, turn off other software that may generate data packets on these 3 computers, use xcap software to perform code packet of the released version and control the rate size of the code packet of the released version. Then record the timestamp when the code packet of the released version is completed and the timestamp when it is displayed on the server side, and count the time it takes to display the code packet of the released version from the computer to the server side.
 
@@ -509,7 +509,7 @@ This Stress Testing uses 3 computers to connect to the same server, turn off oth
 
 Figure 12 Stress Testing Scenario
 
-***\ * Test Results\ ****
+**Test Results**
 
 | Code packet of the released version speed (100Kb/s) | Response time (ms) |
 | --------------- | ------------ |
@@ -527,7 +527,7 @@ Figure 12 Stress Testing Scenario
 
 Table 6 Stress Testing Results
 
-***\ * Analysis of test results\ ****
+**Analysis of test results**
 
 The test results found that at a rate of less than 50000Kb/s, the response of the system is very fast, not more than 500ms, but with the increase of the rate of the code packet of the released version, the system will behave unstable, the average response time is greatly extended, and after the rate of more than 300000Kb /s, the system will become extremely stuck and difficult to operate normally. After fixed-point troubleshooting found that the main reason is that the front end for the update of the table, because each update to insert a row to the top of the table, and then fill in the data, and frequently update the table to insert data for the front end of the display is a big pressure point, while reading and writing the database is also a more time-consuming part.
 
