@@ -229,15 +229,15 @@ The two-feature coding converter (DET) is a core component of our semi-supervise
 
 Figure 8 Multiple Feature Fusion Coding Transformer
 
-The overall structure of DET is shown in Figure 8. DET receives the byte encoding result given by the feature extraction module to obtain a metric I , including! [img] (./source_pic/wps16.jpg) sub-metric! [img] (./source_pic/wps17.jpg), in the shape of! [img] (./source_pic/wps18.jpg), each matrix represents a feature of a data packet, where! [img] (./source_pic/wps19.jpg) represents the number of bytes used for byte encoding,! [ Img] (./source_pic/wps20.jpg) represents the length of the random byte-encoded Vector. Fuse the frequency domain feature results into the Transformer model.
+The overall structure of DET is shown in Figure 8. DET receives the byte encoding result given by the feature extraction module to obtain a metric I , including $N_p$ sub-metric $P_i$, in the shape of $N_b \times N_e$. Each matrix represents a feature of a data packet, where $N_b$ represents the number of bytes used for byte encoding, $N_e$ represents the length of the random byte-encoded Vector. Fuse the frequency domain feature results into the Transformer model.
 
 ![img](./source_pic/wps21.jpg) 
 
-After position encoding, the data is processed in a two-feature encoding along with the extracted frequency-domain features. The two-feature encoding first obtains the output of the frequency-domain feature extraction and extracts a matrix F related to the frequency-domain features of these! [img] (./source_pic/wps22.jpg) data packets of size! [img] (./source_pic/wps23.jpg). The coding vector V (length! [img] (./source_pic/wps24.jpg)) is designed to determine the learning weights for each frequency-domain feature, which will be automatically generated and updated through successive Model Training. The process of obtaining the frequency domain characteristic values of the! [img] (./source_pic/wps25.jpg) data packet is shown in the following formula.
+After position encoding, the data is processed in a two-feature encoding along with the extracted frequency-domain features. The two-feature encoding first obtains the output of the frequency-domain feature extraction and extracts a matrix F related to the frequency-domain features of these $N_p$ data packets of size $N_f \times N_p$ . The coding vector V (length $N_f$) is designed to determine the learning weights for each frequency-domain feature, which will be automatically generated and updated through successive Model Training. The process of obtaining the frequency domain characteristic values of the $N_p$ data packet is shown in the following formula.
 
 ![img](./source_pic/wps26.jpg) 
 
-Wherein,! [img] (./source_pic/wps27.jpg) represents the input for selecting the DFT! [img] (./source_pic/wps28.jpg) data packet corresponding to the frequency domain feature 0-1 index metric,! [img] (./source_pic/wps29.jpg) represents the first i data packet frequency domain feature on the k-th attribute, V represents the coding vector,! [img] (./source_pic/wps30.jpg) represents the final frequency domain feature value of each data packet.
+Wherein, $V_{indexMask}$  represents the input for selecting the DFT. $N_f$ data packet corresponding to the frequency domain feature 0-1 index metric, $f_{i,k}$ represents the first i data packet frequency domain feature on the k-th attribute, V represents the coding vector, $W_{FD}$ represents the final frequency domain feature value of each data packet.
 
 Since the frequency domain feature and the byte feature characterization are in different dimensions, it reflects the frequency domain feature of the data packet based on the flow granularity on specific attributes. It cannot simply be used as a byte attribute and the original byte encoding feature for lateral splicing. We implement the weighted-residual join operation on the basis of the original encoding, and the obtained result is used as the output of the frequency domain feature encoding. This not only incorporates the frequency domain feature based on the stream, but also retains the unaltered byte feature of the original data source packet.
 
@@ -255,7 +255,7 @@ We split the raw training data into labeled and unlabeled data to simulate a sem
 
 First, both labeled and unlabeled data are input to the multi-level feature extraction module.
 
-After FE After that, all data samples (including all labeled and unlabeled data) are used for kitnet training of the confidence selection module, and the first 50/% labeled data samples are selected to pre-train the DET to ensure that it has basic Traffic anomaly detection capabilities.
+After FE After that, all data samples (including all labeled and unlabeled data) are used for kitnet training of the confidence selection module, and the first 50 % labeled data samples are selected to pre-train the DET to ensure that it has basic Traffic anomaly detection capabilities.
 
 (2) Each round of training
 
@@ -275,7 +275,7 @@ After generating RMSE using the pre-trained kitnet mapper, the trustworthiness s
 
 ![img](./source_pic/wps31.jpg) 
 
-Wherein, I represents the input feature of each round of data packet, RMSEs represents a vector of RMSE values,! [img] (./source_pic/wps32.jpg),! [img] (./source_pic/wps33.jpg) represents a benign RMSE threshold and malignant RMSE threshold, the mask indicates the result of selecting high Confidence Level data index.
+Wherein, I represents the input feature of each round of data packet, RMSEs represents a vector of RMSE values,![img](./source_pic/wps32.jpg),![img](./source_pic/wps33.jpg) represents a benign RMSE threshold and malignant RMSE threshold, the mask indicates the result of selecting high Confidence Level data index.
 
 \ 3. Feature enhancement module
 
@@ -461,7 +461,7 @@ In addition to focusing on the performance metrics of the model (F1, accuracy, M
 
 Our feature extraction is divided into byte encoding and frequency domain encoding. Due to the discreteness nature of features and the nature of non-numerical meaning, byte encoding is resistant to layer-based attacks. For frequency domain encoding, its robustness is evaluated in this experiment using an approach similar to FGSM [22].
 
-The feature vector encoded in the frequency domain! [img] (./source_pic/wps55.jpg) travels in the opposite direction of the layer in one training! [img] (./source_pic/wps56.jpg) distance, which can be expressed as:! [img] (./source_pic/wps57.jpg). Where! [img] (./source_pic/wps58.jpg) is expressed as the direction of the layer, and! [img] (./source_pic/wps59.jpg) is the perturbation size. This method can be defined as increasing the small perturbation size! [img] (./source_pic/wps60.jpg), resulting in large changes in the model results. We did a set of tests on mawilab, setting! [img] (./source_pic/wps61.jpg) to different values, and found that this perturbation had little effect on the model results, as shown in Table 3.
+The feature vector encoded in the frequency domain![img](./source_pic/wps55.jpg) travels in the opposite direction of the layer in one training![img](./source_pic/wps56.jpg) distance, which can be expressed as:![img](./source_pic/wps57.jpg). Where![img](./source_pic/wps58.jpg) is expressed as the direction of the layer, and![img](./source_pic/wps59.jpg) is the perturbation size. This method can be defined as increasing the small perturbation size![img](./source_pic/wps60.jpg), resulting in large changes in the model results. We did a set of tests on mawilab, setting![img](./source_pic/wps61.jpg) to different values, and found that this perturbation had little effect on the model results, as shown in Table 3.
 
 ![img](./source_pic/wps62.jpg) 
 
