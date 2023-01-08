@@ -11,93 +11,37 @@
 
 The rapid development of Internet of Things (IoT) technology has facilitated the development of various innovative services and applications, such as smart manufacturing, smart healthcare, and smart transportation. A large number of IoT communications communicate between various IoT entities, passing information such as swtich control, smart Facility Management, communication details, and equipment maintenance details, which often contain various issues arising from normal production or violations that may compromise the security of IoT communications.
 
-The communication network system of the Internet of Things is mainly used for transmitting and processing the information obtained by the sensing layer in the network. Due to the variety of networks involved in the Internet of Things, from wireless, infrared and other radio frequency networks in the sensing layer, through wireless access networks, such as narrowband Internet of Things networks, wireless local area networks , cellular mobile communication networks, wireless ad hoc networks, etc., through the Internet to reach the Internet of Things application layer platform, the cyber security threats faced by the Internet of Things are more complex, with four specific security risks.
+The cybersecurity threats faced by the Internet of Things are more complex, with four specific security risks.
 
-Wireless data transmission links are vulnerable
+**🥰 Wireless data transmission links are vulnerable**
 
-The data transmission of the Internet of Things generally uses wireless radio frequency signals to communicate. The inherent vulnerability of wireless networks makes the system vulnerable to various forms of attacks. Attackers can make the reader unable to accept the data in the normal electronic tag by emitting interference signals, or make the base station unable to work properly, causing communication interruptions. In addition, wireless transmission networks can easily lead to difficult protection during signal transmission, and are easily hijacked, eavesdropped or even tampered with by attackers.
+The data transmission of the Internet of Things generally uses wireless radio frequency signals to communicate. The inherent vulnerability of wireless networks makes the system vulnerable to various forms of attacks. In addition, wireless transmission networks can easily lead to difficult protection during signal transmission, and are easily hijacked, eavesdropped or even tampered with by attackers.
 
-Transmission networks vulnerable to Distributed Denial-of-service
+**🥰 Transmission networks vulnerable to Distributed Denial-of-service**
 
 Due to the large number of nodes in the Internet of Things and the existence of clusters, attackers can use the controlled nodes to send malicious data packets to the network and launch Distributed Dial-of-service, causing network congestion, paralysis, and service interruption.
 
-Unauthorized access and network access
+**🥰 Unauthorized access and network access**
 
-User unauthorized access to the network, illegal use of network resources, or attack the network; user unauthorized access to the network, access to internal network data, such as user information, configuration information, routing information.
+User unauthorized access to the network, illegal use of network resources would attack the network. Additionally, user unauthorized access to the network, access to internal network data, such as user information, configuration information, routing information should also be taken into consideration.
 
-Communication network operator emergency management and control risks
+**🥰 Communication network operator emergency management and control risks**
 
 For communication network operators, the traditional management and control of communication functions such as SMS, data, and voice is mainly based on a single device, a single function, and a single user. However, the end point of IoT devices is large in scale, and there are many combinations of communication functions such as SMS and data in different services. If mass emergency management and control of communication functions cannot be implemented on the network side through multiple dimensions such as geography, business, and users, it will be impossible to cope with the risks caused by massive end point charges.
 
-## 1.2 Related work
-
-Intrusion detection systems (IDS) have been introduced to identify intrusions that evade security technologies. An intrusion can be defined as any type of unauthorized activity that causes damage to an information system. This means that any attack that may pose a threat to the confidentiality, integrity or availability of information will be considered an intrusion. For example, an activity that makes a computer service unresponsive to legitimate users is considered an intrusion. IDS is a software or hardware system used to identify malicious behavior on a computer system in order to maintain system security. The goal of IDS is to identify different types of malicious network traffic and computer usage that traditional firewalls cannot. This is critical to achieving a high level of protection against behavior that compromises the availability, integrity, or confidentiality of computer systems.
-
-In general, IDS systems can be roughly divided into two categories: signature-based intrusion detection (https://so.csdn.net/so/search?q= & spm = 1001.2101.3001.7020) systems (SIDS) and anomaly-based intrusion detection systems (AIDS), which are described below:
-
-Signature-Based Intrusion Detection System (SIDS)
-
-Signature-based intrusion detection systems (SIDS) are based on pattern matching techniques to discover known attacks, also known as knowledge-based detection or misuse detection. In SIDS, matching methods are used to find previous intrusions. In other words, an alarm signal is triggered when intrusion features match the features of a previous intrusion that is already present in the feature database. For SIDS, the logs of the host are checked for commands or sequences of operations that were previously identified as malicious software. The main idea of SIDS is to build a database of intrusion features and compare the current active set with existing features. If a match is found, an alert is issued. SIDS generally provide excellent detection accuracy against previously known intrusions. However, SIDS has difficulty detecting zero-day attacks because there are no matching signatures in the database until the signatures of the new attack are extracted and stored. SIDS is used in many common tools such as Snort (Roesch, 1999) and NetSTAT (Vigna & Kemmerer, 1999). Traditional methods of SIDS examine network data packets and try to match with the signature database. But these techniques fail to identify attacks that span multiple data packets. Since modern malicious software is more complex, it may be necessary to extract signature information from multiple data packets. This requires IDS to call the contents of earlier data packets. Regarding creating a signature for SIDS, there are usually many ways to create the signature as a Finite-State Machine, formal language string pattern, or semantic condition. The increasing frequency of zero-day attacks makes the SIDS technique gradually less effective as no previous signature exists for any such attack. Polymorphic variants of malicious software and increasing targeted attacks may further undermine the adequacy of this traditional paradigm. The general structure of SIDS is shown in Figure 1.
-
-![img](./source_pic/wps1.png) 
-
-Figure 1 SIDS architecture diagram
-
-(2) Anomaly-based intrusion detection system (AIDS)
-
-AIDS has attracted the attention of many scholars due to its ability to overcome the limitations of SIDS. In AIDS, normal models of computer system behavior are created using Machine Learning , statistical-based or knowledge-based methods. Any significant deviation between the observed behavior and the normal model is considered an anomaly and can be interpreted as an intrusion. The assumption of this set of techniques is that malicious behavior differs from typical user behavior. Behaviors of abnormal users that differ from standard behavior are classified as intrusions. The development of AIDS consists of two phases: a training phase and a testing phase. During the training phase, the normal traffic profile is used to learn the normal behavior model, and then during the testing phase, using the new dataset, the ability of the system to generalize to previously unseen intrusions is established. AIDS can be divided into many categories according to the method trained, for example, statistical-based, knowledge-based, and machine learning-based methods. The main advantage of AIDS is the ability to identify zero-day attacks, as identifying anomalous user activity does not rely on a signature database. AIDS triggers red flags when the checked behavior is different from the usual behavior. SIDS can only identify known intrusions, while AIDS can detect zero-day attacks. However, AIDS can lead to a high rate of false positives, as the anomaly may just be new normal activity, not a true invasion.
-
-The difficulty of identifying unknown intrusions is a particular problem for IoT networks, which connect a large number of devices with different computing resources, communication technologies, battery capacities, software, and operating systems. This heterogeneity challenges the deployment of security solutions, increasing Attack Surface, making IoT networks more vulnerable to new and unfamiliar intrusions [1] - [3]. Traditional Machine Learning (ML) techniques [8] have been shown to be effective in identifying important patterns in IoT Traffic, resulting in proficient identification of cyber attacks [4]. However, ML have also proven unable to scale to huge datasets (i.e. millions of records with over a hundred features), and ML perform poorly in detecting intrusions/cyber attacks with extremely dispersed IoT nodes [5], [6]. In addition, the continuous improvement of Deep Learning (DL) techniques has inspired new IDS, which can handle and handle the required intrusion/network attack, difficulty and complexity, and distribution level well [7].
-
-Artificial intelligence methods such as ML /DL have been an important challenge in developing reliable IDS in IoT [7], [9], [13] environments. In this regard, current methods for detecting IoT intrusions can be divided into three distinct aspects.
-
-supervised approach
-
-Supervised ML or DL methods are typically trained using labeled IoT records to distinguish between normal records and other attack records (i.e., binary classification), or to distinguish different attack classes from normal traffic (i.e., multi-class classification). Traditional Machine Learning methods have been applied on IoT IDS. For example, Yang et al. [28] utilized k-nearest neighbors (kNNs) to develop a secure IDS for large-scale IoT data. There are also methods using Deep learning, such as Gao et al. [12] using LSTM and feedforward neural network (FNN) to detect intrusions, respectively, and experimented in integrated architectures. Although supervised methods achieve high precision in IDS, they have not gained popularity due to the lack of labeled IoT data [10]. Furthermore, they perform poorly when the data is unevenly distributed among classes (class imbalance problem). This prompted us to use semi-supervised learning to develop highly effective AIDS.
-
-unsupervised method
-
-Data or Traffic labels are referred to as unsupervised IDS. This approach does not require any Traffic labels, so it is cost-effective, and they utilize the inherent characteristics of IoT Traffic samples to distinguish different attacks. Therefore, they are able to reliably identify new attacks. For example, Ergen and Kozat [14] utilize an LSTM architecture to process a sequence of IoT Traffic and generate a fixed-length sequence. They then use single-class SVM and support vector data description techniques to compute the final classification decision. Vu et al. [11] developed a regularized version of the AE architecture to learn latent representations of input traffic, leveraging it to fine-tune the performance of supervised learners. However, for these methods, while manual annotation of the data is not required, they do not give very impressive performance and stable results. Furthermore, they do not have the robustness of supervised methods, especially in identifying previously identified attacks. Second, they exhibit high computational complexity, which limits their applicability in real-time or resource-constrained IoT applications [1], [14], [15].
-
-Semi-supervised approach
-
-Semi-supervised methods use both annotated and unannotated samples to train a particular classifier, especially when a small number of labeled samples are available. Many such techniques have been developed to detect intrusions in IoT Traffic and have demonstrated good performance [15], [16]. For example, Ravi and Shalini [17] developed a semi-supervised ML method to detect network attacks by integrating supervised neural networks and repeated random sampling of unsupervised data Clustering. Gao et al. [18] proposed a new ambiguity-based semi-supervised learning method via ensemble learning, achieving 84.54% and 71.29% accuracy on the "KDDTest +" and "KDDTest-21" datasets. Their performance in identifying previously identified attacks remains low compared to supervised methods. In other words, they require more labeled data to improve their performance. Abdel-Basset et al., using 25% labeled data, achieved 98% F1 values. In our model, we use only 10% of labeled data and achieve 99% F1 value. In addition, the robustness of the model has received little attention. Compared with existing methods, our method improves detection accuracy, utilization efficiency of labeled data, and model robustness.
-
-## 1.3 Introduction of works
+## 1.2 Introduction of works
 
 The rapid development of Internet of Things (IoT) technology has generated a large amount of Traffic, which usually contains various problems arising from normal production or violations that may compromise the security of IoT communications, such as autonomous driving, industrial IoT, smart home, etc. Collecting these Traffic can detect intrusions through IoT networks. Despite great efforts in annotating IoT Traffic records, the number of flagged records is still very small, increasing the difficulty of identifying malicious attacks. We implement a Semi-Supervised Deep Learning Method (ESet) -based Intrusion Detection System for the Internet of Things.
 
 ![img](./source_pic/wps2.jpg) 
 
-Figure 2 IoT communication application scenario
+**Ji XiaoAn is committed to implementing a high precision, fast, robust and lightweight anomaly-based intrusion detection system.**It can be deployed on the [Internet of Things Cloud Computing Platform](http://www.nlecloud.com/about), trains models on the cloud layer and performs Traffic detection at the detection layer, which is lightweight and practical.
 
-Ji Xiaoan is committed to implementing a high precision, fast, robust and lightweight anomaly-based intrusion detection system. It can be deployed on the [Internet of Things Cloud Computing Platform] (http://www.nlecloud.com/about), trains models on the cloud layer and performs Traffic detection at the detection layer, which is lightweight and practical.
+**We preset the application model of the embedded intrusion detection framework**, which consists of a cloud layer, a detection layer and an edge layer. After collecting Traffic at the edge layer, the collected Traffic will be subjected to feature processing and Model Training in the cloud layer, and anomaly detection will be performed on the subsequent Traffic at the detection layer. With the support of powerful Deep learning prediction speed and accuracy, it can predict the intrusion detection behavior of the IoT system in real time and alert users.
 
-We preset the application model of the semi-supervised intrusion detection framework, which consists of a cloud layer, a detection layer and an edge layer. After collecting Traffic at the edge layer, the collected Traffic will be subjected to feature processing and Model Training in the cloud layer, and anomaly detection will be performed on the subsequent Traffic at the detection layer. With the support of powerful Deep learning prediction speed and accuracy, it can predict the intrusion detection behavior of the IoT system in real time and alert users.
+**We design a semi-supervised model architecture for real-time application of semi-supervised prediction**, making full use of unlabeled network Traffic data to construct a real-time NID system, and using the self-designed trustworthiness selector module to provide quality assurance for pseudo-labels based on the sensitivity of kitnet Algorithm to malignant Traffic data. We propose a frequency domain coding converter, which realizes the analysis of extracted frequency domain features and byte coding features.
 
-In terms of innovation, we design a semi-supervised model architecture for real-time application of semi-supervised prediction, make full use of unlabeled network Traffic data to construct a real-time NID system, and use the self-designed trustworthiness selector module to provide quality assurance for pseudo-labels based on the sensitivity of kitnet Algorithm to malignant Traffic data. We propose a frequency domain coding converter, which realizes the analysis of extracted frequency domain features and byte coding features.
-
-In terms of operation effect, there are two highlights of our work. First, under the premise that it becomes difficult to manually label a large number of IoT records, only a small part of the IoT Traffic can be labeled, and most of the rest can be unlabeled. Ji Xiaoan can efficiently learn from a small amount of labeled data and a large amount of unlabeled data. He achieved excellent performance against NIDs with a small part of labeled data (10%) on the IDS2017 and IDS2018 datasets (F1 score: 99.48%). In extreme cases, only 1% of the data is used, and the F1 value exceeds 97%. For the current attacks against ML /DL weaknesses, we conduct different types of tests by simulating the behavior of the opponent, PDR less than 5%, showing the high robustness of Ji Xiaoan.
-
-Because of its openness, multi-source heterogeneity, ubiquity and other characteristics, the security of the Internet of Things is related to the security of individuals, families, society, and even the country. In terms of commercial value, according to the proportional distribution of Gartner cyber security industry product structure, in 2019, the market size of my country's intrusion detection/defense equipment is about 1.9 billion yuan. Therefore, Ji Xiaoan-IoT qualitative intrusion detection system, such a high precision, fast, robust and lightweight practical system, we believe that the future development of this product will have unlimited possibilities!
-
-## 1.4 The painpoint to be solved in this work
-
-Compared with the signature-based intrusion detection system (SIDS), it is difficult to collect and update intrusion information, it is difficult to detect local intrusion and new intrusion behavior, and the workload of maintaining the feature library is huge; the anomaly-based intrusion detection system (AIDS) can detect new intrusion or never-sent intrusion; it has less dependence on the operating system; it can detect intrusion of abuse of authority. Therefore, we mainly devote ourselves to the research of AIDS, especially focusing on the application of artificial intelligence technology in it.
-
-For the methods in ML /DL mentioned in 2.2, we have analyzed the current problems faced by supervised, unsupervised and semi-supervised methods, so we propose a semi-supervised ESet based on frequency domain coding converter. ESet is committed to implementing a high precision, fast, robust and lightweight AIDS, aiming to detect network attacks in Traffic records generated by IoT networks, taking advantage of labeled and unlabeled Traffic sequences during training.
-
-To sum up, the painpoints we mainly solve include the following aspects:
-
-There is a shortage of labeled data. Due to the rapid and extreme increase in the size of IoT data, it is difficult to obtain up-to-date labeled IoT Traffic datasets, especially for intrusion/cyber attack detection. Therefore, learning from unlabeled data has become an important research challenge in the IoT environment.
-
-Utilization efficiency of tagged data. It becomes difficult to manually tag a large number of IoT records. However, a small fraction of IoT traffic can be tagged, and most of the rest can remain untagged. We use a semi-supervised DL method, which is ideal for this situation and can effectively learn from a small amount of labeled data, achieving an accuracy of 10% of the labeled data with 99% F1 value.
-
-The robustness of the model is an issue that most IDS ignore. We consider three different attack methods, using white-box-gray-box-Black box attack to simulate the behavior of the adversary and discarding unrealistic assumptions to attack ESet. From the test results, it reflects the high robustness of ESet.
-
- 
-
-
+**In terms of operation effect, we have excellent performance in both experimental results and robustness.**First, under the premise that it becomes difficult to manually label a large number of IoT records, only a small part of the IoT Traffic can be labeled, and most of the rest can be unlabeled. Ji Xiaoan can efficiently learn from a small amount of labeled data and a large amount of unlabeled data. He achieved excellent performance against NIDs with a small part of labeled data (10%) on the IDS2017 and IDS2018 datasets (F1 score: 99.48%). In extreme cases, only 1% of the data is used, and the F1 value exceeds 97%. For the current attacks against ML /DL weaknesses, we conduct different types of tests by simulating the behavior of the opponent, PDR less than 5%, showing the high robustness of Ji Xiaoan.
 
 # 2 Design and Implementation
 
@@ -107,19 +51,24 @@ We design the application model and functions of Ji Xiaoan in the real-world IoT
 
 ![img](./source_pic/wps3.jpg) 
 
-Figure 3 Application model of semi-supervised intrusion detection framework
-
 The structure of the Internet of Things network is mainly composed of three layers, namely the cloud layer, the detection layer and the edge layer.
 
-The cloud layer holds high and powerful computing resources; therefore, the Model Training process takes place at this layer, as the training requires obtaining a large amount of IoT tracking data. Such Big data can be easily aggregated and stored in the cloud. In addition, the cloud layer stores the model configuration, old pre-trained versions, and other settings related to the training transaction.
+The cloud layer holds high and powerful computing resources. Therefore, the Model Training process takes place at this layer, as the training requires obtaining a large amount of IoT tracking data. Such Big data can be easily aggregated and stored in the cloud. In addition, the cloud layer stores the model configuration, old pre-trained versions, and other settings related to the training transaction.
 
-The detection layer usually consists of many fog servers/devices, bringing the computation closer to the edge of the IoT network. In IoT networks, the detection layer has a critical role as it is where intrusion detection occurs. Specifically, each detection node consists of four main parts, namely: 1) Traffic Aggregation part; 2) Traffic Preparation part; 3) Traffic Countermeasures part; and 4) Traffic Diagnosis. The Traffic Aggregation component is responsible for capturing and receiving the IoT Traffic records from the connected part of the edge IoT network, and then passing the batches of samples to the preparation phase. The Traffic Aggregation component is responsible for converting the received batches to a standard format, applying the necessary data cleaning and normalization. After that, the Traffic Diagnostic component is designated to classify the prepared IoT Traffic data using the Internet of Things \****， without any communication with the cloud backend, thus preventing any delays. This classification process can be carried out in the case of binary or multi-class. Once an activity is identified as an attack, the provided activity information is forwarded to the cloud backend for brief introduction. Each detection node is responsible for diagnosing the relevant area of the IoT network. Therefore, all IoT Traffic records are captured by the corresponding atomized device operating in promiscuous mode. For example, given that there have been significant changes in Traffic in a particular area of the underlying IoT network, if these changes are malicious, i.e. Denial of Service (DoS) events, Ji Xiaoan will identify them and communicate the countermeasures component. When the change is benign, some nodes must be connected to another accessible fogging device to mitigate the situation in which it becomes congested. After all, the countermeasure component takes the decisions generated from Ji Xiaoan and then executes the necessary predetermined countermeasure modules, namely warning, blocking, and deleting actions. After this, information about the identified actions is transmitted to the cloud for use in the logging component of the results.In this case, the countermeasure component is used to analyze the resulting actions.
+The detection layer usually consists of many fog servers/devices, bringing the computation closer to the edge of the IoT network. In IoT networks, the detection layer has a critical role as it is where intrusion detection occurs. Specifically, each detection node consists of four main parts: 
 
-Finally, the edge layer consists of edge nodes and edge devices (i.e. laptops, smartphones, smartwatches, etc.) that communicate through the IoT network through routing and switching devices, and are simultaneously connected to specific fog servers/nodes as a computational bridge to the back end of the cloud.
+1) Network Traffic Aggregation; 
+1) Network Traffic Preparation part
+1) Network Traffic Countermeasures
+1) Network Traffic Diagnosis. 
+
+The Traffic Aggregation component is responsible for capturing and receiving the IoT Traffic records from the connected part of the edge IoT network, and then passing the batches of samples to the preparation phase. 
+
+The edge layer consists of edge nodes and edge devices (i.e. laptops, smartphones, smartwatches, etc.) that communicate through the IoT network through routing and switching devices, and are simultaneously connected to specific fog servers/nodes as a computational bridge to the back end of the cloud.
 
 ## 2.2 Design scheme
 
-2.2.1 System Environmental Design
+### 2.2.1 System Environmental Design
 
 Now all the communication between cloud IoT platforms and devices is essentially built on TCP/IP protocols, just re-encapsulation of data packets, based on which we can use Wifi, 4G to achieve communication between devices and Cloud Computing Platform.
 
@@ -129,25 +78,25 @@ Based on the preset application scenario model of Ji Xiaoan, we design a real Io
 
 Figure 4 Example system environment
 
-### 2.2.1.1 Hardware
+#### 2.2.1.1 Hardware
 
 Cloud environment:
 
 Intel Sky Lake-E, 12 multi-core processor built on the experimental environment, using Ubuntu 18.04.6 LTS, 3.10.0-1062.9.1.el x86_64 operating system; we also use NVIDIA's GV104 [GeForce GTX 1180] as our GPU environment to accelerate our experiments.
 Detection layer equipment:
 
-Honor Magic Book 2019 laptop with Windows 10 x86 system
-Edge layer devices:
+1. Honor Magic Book 2019 laptop with Windows 10 x86 system
+   Edge layer devices:
+2. Honor20 smartphone
 
-Honor20 smartphone
+3. Xiaomi full screen TV EA65
 
-Xiaomi full screen TV EA65
+4. Fluorite C6CN Starlight Surveillance Camera * 2
 
-Fluorite C6CN Starlight Surveillance Camera * 2
+5. Xiaomi watch S1 smart watch
 
-Xiaomi watch S1 smart watch
 
-## 2.2.1.2 topology description
+#### 2.2.1.2 topology description
 
 **Host server**: Windows system computer, and set it as a WIFI hotspot, and then let our home devices are connected to this WIFI to form an Internet of Things, so that all device data Traffic through the server, and deploy Ji Xiaoan - Internet of Things network detection expert on the service.
 
@@ -161,7 +110,7 @@ Figure 5 Example of network intrusion alarm
 
 ### 2.2.2 Low-level Algorithm Design Scheme
 
-### 2.2.2.1 Method Overview
+#### 2.2.2.1 Method Overview
 
 Internet of Things Network Intrusion Detection (IoTNID), as an important active security defense technology, aims to achieve accurate detection of network attack events. In recent years, many supervised and unsupervised methods have been proposed for IoTNID. However, these methods mainly face two challenges. First, the vast majority of network traffic data is unlabeled, and existing methods cannot effectively combine these unlabeled data with existing tagged network traffic data to improve the accuracy of detection. Secondly, they cannot learn features from different layers of network Traffic data, such as data packet hierarchy and Traffic hierarchy, so as to have a comprehensive understanding of network Traffic characteristics. To address these challenges, we propose an extreme semi-supervised model (ESeT) based on a dual-feature coding converter, which uses only a very small amount of labeled data, makes full use of unlabeled network Traffic data to enrich the extracted feature information and reduces the negative impact of false pseudo-labels through a confidence selector. Furthermore, we propose a Multi-level Feature Extraction to learn Traffic-level frequency-domain features and data packet-level byte-coding features. Experimental results show that our model achieves excellent performance on NIDs not only on IDS2017 and IDS2018 datasets with a small percentage of labeled data (10%) (F1 score: 99.48%).
 
@@ -171,7 +120,7 @@ Figure 6 Eset overall architecture
 
 The figure above shows the underlying Deep learning foundation of our IoT network system - ESeT, which consists of two modules, namely multi-level feature extraction and semi-supervised bi-feature coding converter. Multi-level feature extraction includes byte encoding and frequency domain feature extraction, with the purpose of extracting byte features and frequency domain features of network working Traffic. The semi-supervised bi-feature coding converter includes the bi-feature coding converter as the core components of prediction, confidence selector and feature enhancer, and it describes the semi-supervised training process. The raw input data consisting of labeled and unlabeled pcap data packets is sent to the multi-level feature extraction module. After extraction, the processed data is provided to the semi-supervised training module for prediction.
 
-2.2.2.2 multi-level feature extraction
+#### 2.2.2.2 multi-level feature extraction
 
 Traffic is first filtered and separated into sessions. Then, the filtered and separated network traffic is analyzed by random Vector byte encoding and frequency domain feature extraction, and byte features and frequency domain features are extracted.
 
@@ -201,23 +150,23 @@ Figure 7 Random Vector byte encoding steps
 
 First we denote each data packet feature of all data packets as a matrix S, where Sik is defined as the i k-th attribute of the i-th data packet,
 
-![img](./source_pic/wps9.png) 
+<img src="./source_pic/wps9.png" alt="img" style="zoom: 67%;" /> 
 
 Then multiply S by a coding vector w for linear transformation, and the value of w is realized by the automatic parameter selection module, resulting in
 
-![img](./source_pic/wps10.png) 
+<img src="./source_pic/wps10.png" alt="img" style="zoom:67%;" /> 
 
 Next we need a frame-based discrete Fourier transform, first split the data packet into frames, we denote the number of frames as Nf, and the length of the frame as Wseg, denoted as:
 
-![img](./source_pic/wps11.png) 
+<img src="./source_pic/wps11.png" alt="img" style="zoom:67%;" /> 
 
 After we perform a discrete Fourier transform (DFT) on each frame, we can get the frequency characteristics of each frame as follows:
 
-![img](./source_pic/wps12.png) 
+<img src="./source_pic/wps12.png" alt="img" style="zoom:67%;" /> 
 
 Fik is the i frame with a frequency of 2π (k − 1)/Wseg. Since the Fourier transform is a complex number, it cannot be used as the Machine Learning input to the Machine Learning Algorithm. Using the coordinate plane method, we convert complex numbers to real numbers and compute the modulus of the frequency domain representation. In order to make the frequency domain features numerically stable and prevent floating point overflow in Machine Learning training, we perform a logarithmic transformation to obtain the result as shown below:
 
-![img](./source_pic/wps13.png) 
+<img src="./source_pic/wps13.png" alt="img" style="zoom:67%;" /> 
 
 ![img](./source_pic/wps14.png) 
 
@@ -227,9 +176,7 @@ The two-feature coding converter (DET) is a core component of our semi-supervise
 
 ![img](./source_pic/wps15.jpg) 
 
-Figure 8 Multiple Feature Fusion Coding Transformer
-
-The overall structure of DET is shown in Figure 8. DET receives the byte encoding result given by the feature extraction module to obtain a metric I , including $N_p$ sub-metric $P_i$, in the shape of $N_b \times N_e$. Each matrix represents a feature of a data packet, where $N_b$ represents the number of bytes used for byte encoding, $N_e$ represents the length of the random byte-encoded Vector. Fuse the frequency domain feature results into the Transformer model.
+The overall structure of DET is shown in the above figure. DET receives the byte encoding result given by the feature extraction module to obtain a metric I , including $N_p$ sub-metric $P_i$, in the shape of $N_b \times N_e$. Each matrix represents a feature of a data packet, where $N_b$ represents the number of bytes used for byte encoding, $N_e$ represents the length of the random byte-encoded Vector. Fuse the frequency domain feature results into the Transformer model.
 
 ![img](./source_pic/wps21.jpg) 
 
@@ -247,7 +194,7 @@ After N identical encoders, the classification layer is added to the output for 
 
 #### 2.2.2.4 semi-supervised training architecture
 
-\ 1. Model Training View
+1. Model Training View
 
 We split the raw training data into labeled and unlabeled data to simulate a semi-supervised situation. We sample the data using proportional screening to ensure that each class of unlabeled samples has the same scale as the class in the entire training data.
 
@@ -261,7 +208,7 @@ After FE After that, all data samples (including all labeled and unlabeled data)
 
 In each round, a certain proportion of samples are selected as the input to the DET and kitnet networks. DET predict the classification result, while kitnet generates an RMSE vector representing the root mean square error of the difference between malignant data and benign data. Based on the judgment of RMSE values and prediction results, the trustworthiness selector filters out data that can be used as raw materials for pseudo-labels. The qualified prediction data screened out by the trustworthiness selector module will be mixed with a certain proportion of labeled samples, and the feature enhancement module fuses the output of the trustworthiness selector with some labeled sample data, and performs feature enhancement. After processing, these data will be used as pseudo-labeled data samples, and then input to the converter model for training. At this point, the model enters a new half-training round.
 
-\ 2. Confidence Level Selector
+2. Confidence Level Selector
 
 The confidence selector is designed to filter out predictions with high confidence and discard those with low confidence.
 
@@ -275,9 +222,9 @@ After generating RMSE using the pre-trained kitnet mapper, the trustworthiness s
 
 ![img](./source_pic/wps31.jpg) 
 
-Wherein, I represents the input feature of each round of data packet, RMSEs represents a vector of RMSE values,![img](./source_pic/wps32.jpg),![img](./source_pic/wps33.jpg) represents a benign RMSE threshold and malignant RMSE threshold, the mask indicates the result of selecting high Confidence Level data index.
+Wherein, I represents the input feature of each round of data packet, RMSEs represents a vector of RMSE values, $T_m$ , $T_b$ represents a benign RMSE threshold and malignant RMSE threshold, the mask indicates the result of selecting high Confidence Level data index.
 
-\ 3. Feature enhancement module
+3. Feature enhancement module
 
 In order to ensure that the model will not deviate from the original prediction accuracy due to inaccurate pseudo-labels during continuous training, we add a certain proportion of label samples to each round of pseudo-label generation. Since the same type of attack Traffic has similar frequency domain features, in order to further enhance the features for better training effect, we randomly select the frequency domain features of the labeled Traffic data, and randomly exchange them with the byte-encoded features of the predicted Traffic data of the same class in the original labeled samples to generate new data samples.
 
@@ -286,8 +233,6 @@ In order to ensure that the model will not deviate from the original prediction 
 The main function of this system is to collect the data packet of each device flowing through the server network interface card, and then transmit it to the trained intrusion detection model to obtain the prediction result, and store it in the corresponding database, and then organize and transmit the data to the front end page. The front end maintains a table for each device for rolling display, and issues a warning when the proportion of data packets that detect instantaneous malicious attacks reaches a certain threshold. This makes it possible to monitor the entire network environment in the Internet of Things in real time and protect the cyber security of each device. And after experimental tests, the system can also do real-time detection and analysis under the high-load network environment of 20,000 data packets per second.
 
 ![img](./source_pic/wps34.jpg) 
-
-Figure 9 Overview of system functions
 
 #### 2.2.3.1 design
 
@@ -313,7 +258,7 @@ If the malicious packet rate of a certain device reaches a certain threshold, a 
 
 ![img](./source_pic/wps40.png) 
 
-### 2.2.3.2 monitoring interface design
+#### 2.2.3.2 monitoring interface design
 
 ![img](./source_pic/wps41.jpg) 
 
@@ -323,9 +268,9 @@ If the malicious packet rate of a certain device reaches a certain threshold, a 
 
 This program is developed using Python, the Python version used is 3.8.6, the development tool is Pycharm, and the running platform is Windows10.
 
-**Pyqt5 Front-end UI The framework implements the system to realize the page design. Adhering to the Interface Segregation Principle in the design process, an interface only does one thing, and a button only corresponds to one function, ensuring the program function decoupling, high Aggregation and low coupling. At the same time, it fully increases the code to reuse, showing that the data table of different devices uses the same class for design and reuse.
+**Pyqt5 Front-end UI The framework implements the system to realize the page design**. Adhering to the Interface Segregation Principle in the design process, an interface only does one thing, and a button only corresponds to one function, ensuring the program function decoupling, high Aggregation and low coupling. At the same time, it fully increases the code to reuse, showing that the data table of different devices uses the same class for design and reuse.
 
-***\* SMTP The service realizes 163 mailbox email sending**. We have registered a special account to send emails to system users to inform users of threatening content in a timely manner.
+**SMTP The service realizes 163 mailbox email sending**. We have registered a special account to send emails to system users to inform users of threatening content in a timely manner.
 
 Sqlite realizes front-end separation and data interaction. The program front-end display is separated from back-end network card data packet capture, prediction and other functions, and data transmission interacts through the Sqlite database.
 
@@ -337,9 +282,8 @@ This program uses Sqlite data. Sqlite is an in-process library that implements a
 
 After selecting the device to be monitored, each device program to be monitored will go to Sqlite to create a corresponding data database & table, and the subsequent captured data packets will be stored in the corresponding data database & table item after parsing in the program. The structure of the data database & table is as follows:
 
-| data table name: device name | | | | | |
-| --------------- | ---------------- | -------- | ---- | ---------- | --------- |
 | Field name | Field description | Data type | Length | Null allowed | Remarks |
+| --------------- | ---------------- | -------- | ---- | ---------- | --------- |
 | Index | data packet number | int | | N | primary key, index |
 | Time | data packet capture time | int | 50 | N | |
 | SourceAddr | data packet source address | varchar | 18 | N | |
@@ -383,35 +327,17 @@ Ji Xiaoan is committed to achieving a high precision, fast, robust and lightweig
 
 IDS2017 and IDS2018 showcase the recent IDS dataset by Sharafaldin et al. [19] of the Canadian Cyber Security Institute, called CIC-IDS, which contains the most traditional attack categories, as well as unaltered real-world benign traffic widely used in intrusion detection experiments.
 
-The Mawilab dataset is derived from the WIDE MAWI gigabit backbone (during January 1-10, 2022) documented in the MAWI archive [20]. As it has been continuously updated with mature labeling methods, it incorporates a wider range of recent attack types and has fine-grained classification results. For our experiments, we select the data from January 1-10, 2022 as the model's comparative experimental validation of different attack results.The Mawilab dataset is derived from the WIDE MAWI gigabit backbone (during January 1-10, 2022) documented in the MAWI archive [20]. As it has been continuously updated with mature labeling methods, it incorporates a wider range of the latest attack types and has fine-grained classification results. In our experiments, we
+The Mawilab dataset is derived from the WIDE MAWI gigabit backbone (during January 1-10, 2022) documented in the MAWI archive [20]. As it has been continuously updated with mature labeling methods, it incorporates a wider range of recent attack types and has fine-grained classification results. For our experiments, we select the data from January 1-10, 2022 as the model's comparative experimental validation of different attack results.The Mawilab dataset is derived from the WIDE MAWI gigabit backbone (during January 1-10, 2022) documented in the MAWI archive [20]. As it has been continuously updated with mature labeling methods, it incorporates a wider range of the latest attack types and has fine-grained classification results.
 
 ![img](./source_pic/wps48.jpg) 
 
-Table 1 IDS2017, IDS2018 dataset details
-
-The data we use is the original PCAP data packet Traffic, and the specific data sample in wireshark is shown in Figure 4.
+The data we use is the original PCAP data packet Traffic, and the specific data sample in wireshark is shown.
 
 ![img](./source_pic/wps49.jpg) 
 
-Figure 10 Data packet display in wireshark
 
-An example of a single data packet is shown in Figure 5.
 
 ![img](./source_pic/wps50.jpg) 
-
-Figure 11 Display of a single data packet in wireshark
-
- 
-
- 
-
- 
-
- 
-
- 
-
-
 
 # 3 Work Testing and Analysis
 
@@ -461,11 +387,9 @@ In addition to focusing on the performance metrics of the model (F1, accuracy, M
 
 Our feature extraction is divided into byte encoding and frequency domain encoding. Due to the discreteness nature of features and the nature of non-numerical meaning, byte encoding is resistant to layer-based attacks. For frequency domain encoding, its robustness is evaluated in this experiment using an approach similar to FGSM [22].
 
-The feature vector encoded in the frequency domain![img](./source_pic/wps55.jpg) travels in the opposite direction of the layer in one training![img](./source_pic/wps56.jpg) distance, which can be expressed as:![img](./source_pic/wps57.jpg). Where![img](./source_pic/wps58.jpg) is expressed as the direction of the layer, and![img](./source_pic/wps59.jpg) is the perturbation size. This method can be defined as increasing the small perturbation size![img](./source_pic/wps60.jpg), resulting in large changes in the model results. We did a set of tests on mawilab, setting![img](./source_pic/wps61.jpg) to different values, and found that this perturbation had little effect on the model results, as shown in Table 3.
+We did a set of tests on mawilab, this perturbation had little effect on the model results, as shown in the following table:
 
 ![img](./source_pic/wps62.jpg) 
-
-Table 3 Influence of different on model robustness
 
 (2) Attacks of a practical nature
 
@@ -487,17 +411,13 @@ PBA: An attacker without any knowledge of the target system can only simulate th
 
 ![img](./source_pic/wps63.jpg) 
 
-Table 4 Impact of kisune-based PBA on ESet
-
 PGA: We used frequency domain coding as a feature extractor to analyze the impact of different attack costs (l_c, l_t) on the robustness of the model. The first overhead, expressed in l_c, is the ratio of the number of crafted data packets to the original data source packets. The second overhead, expressed in l_t, is the time-consuming rate of mutated traffic vs. original traffic. We used lower l_c = 0.2, l_t = 2 and higher budget l_c = 0.5, l_t = 5) and the results are shown in Table 5. The results show that whether it is high cost (PDR = 5.25%) or low cost (PDR = 3.44%), the impact of PGA on ESet attacks is limited.
 
 ![img](./source_pic/wps64.jpg) 
 
-Table 5 Impact of different attack costs on our model
-
 Taken together, these results demonstrate the robustness of ESet. In particular, our model is insensitive to adversary attack costs.
 
-# 3.4 Stress Testing Experiment
+## 3.4 Stress Testing Experiment
 
 The stress testing of this experiment is mainly to check whether our system can run smoothly in a multi-device and high concurrent network environment. The main source of pressure lies in whether the system can capture the data packet in all network interface cards in time, whether the model prediction can be completed in time, whether the data can be written to the database in time, and whether the page update displayed by the front end can keep up with the data packet generation speed in the network environment. The final evaluation indicator is the time it takes to send the data to the front end page display.
 
@@ -525,41 +445,17 @@ Figure 12 Stress Testing Scenario
 
 ![img](./source_pic/wps66.jpg) 
 
-Table 6 Stress Testing Results
-
 **Analysis of test results**
 
 The test results found that at a rate of less than 50000Kb/s, the response of the system is very fast, not more than 500ms, but with the increase of the rate of the code packet of the released version, the system will behave unstable, the average response time is greatly extended, and after the rate of more than 300000Kb /s, the system will become extremely stuck and difficult to operate normally. After fixed-point troubleshooting found that the main reason is that the front end for the update of the table, because each update to insert a row to the top of the table, and then fill in the data, and frequently update the table to insert data for the front end of the display is a big pressure point, while reading and writing the database is also a more time-consuming part.
 
 For general non-industrial equipment such as home appliances, driverless vehicles, the total amount of data generated per second is generally 10000Kb/s, the maximum peak is 50000Kb/s, and this is within the tolerance of our system, which also shows that the performance of our system is sufficient for non-industrial IoT security monitoring.
 
-# 4 Innovative Description
-
-The foothold of the qualitative intrusion detection system of the Internet of Things is the security problem in the Internet of Things network, which is a very practical and urgent problem to solve. The security of the Internet of Things is more important and influential than the security of the Internet. The Internet of Things deals with the physical world, whether it is automatic driving, smart grid, bridge detection or disaster monitoring. Once a problem occurs, it may even involve the loss of life and property.
-
-Ji Xiaoan is committed to implementing a high precision, fast, robust and lightweight anomaly-based intrusion detection system. It can be deployed on the [Internet of Things Cloud Computing Platform] (http://www.nlecloud.com/about), trains models on the cloud layer and performs Traffic detection at the detection layer, which is lightweight and practical.
-
-We make full use of the features of labeled and unlabeled network Traffic data and reduce the negative effects of false pseudo-labels through a trustworthiness selector. In addition, we propose a multi-level feature representation learning module that learns both Traffic-level frequency-domain features and data packet-level byte-coding features.
-
-Since most of the data is outdated and unreliable, lacks diversity, and is too small to cover known attacks, we used IDS2017, IDS2018, a real-world attack dataset that includes both benign and up-to-date common attacks, with broad coverage that reflects current trends.
-
-Our main tasks are:
-
-(1) We design an IoT intrusion detection system based on a three-tier architecture - cloud layer, detection layer, and edge layer. With the support of powerful Deep learning prediction speed and accuracy, it can predict the intrusion detection behavior of the IoT system in real time and alert users.
-
-(2) We design a semi-supervised model architecture for real-time application of semi-supervised prediction, make full use of unlabeled network Traffic data to construct a real-time NID system, and use the self-designed trustworthiness selector module to provide quality assurance for pseudo-labels based on the sensitivity of kitnet Algorithm to malignant Traffic data. We propose a frequency domain coding converter, which realizes the analysis of extracted frequency domain features and byte coding features.
-
-(3) We conducted experiments on three datasets, namely IDS2017, IDS2018 and mawilab, including comparative experiments, ablation experiments, robustness experiments, etc. The results show that our model performs well, with both high accuracy and high robustness.
-
-First, under the premise that it becomes difficult to manually label a large number of IoT records, only a small part of the IoT Traffic can be labeled, and most of the rest can be unlabeled. Ji Xiaoan was able to efficiently learn from a small amount of labeled data and a large amount of unlabeled data, achieving an accuracy rate of 99% of the F1 value of 10% of the labeled data. In extreme cases, using only 1% of the data, the F1 value exceeds 97%. For the current attacks against ML /DL weaknesses, we conduct different types of tests by simulating the behavior of the adversary, PDR less than 5%, which verifies the high robustness of Ji Xiaoan.
-
- 
 
 
+# 4 Summary
 
-# 5 Summary
-
-## 5.1 Summary of works
+## 4.1 Summary of works
 
 Because of its openness, multi-source heterogeneity, ubiquity and other characteristics, the security of the Internet of Things is related to the security of individuals, families, society, and even the country. Ji Xiaoan is committed to realizing a high precision, fast, robust and lightweight anomaly-based intrusion detection system. It can be deployed on the [Internet of Things Cloud Computing Platform] (http://www.nlecloud.com/about), trains models on the cloud layer and performs Traffic detection in the detection layer, which is lightweight and practical.
 
@@ -569,7 +465,7 @@ In the implementation method, we design a semi-supervised model architecture for
 
 In terms of operation effect, under the premise that it becomes difficult to manually label a large number of IoT records, only a small part of IoT Traffic can be labeled, and most of the rest can be unlabeled. Ji Xiaoan can learn efficiently from a small amount of labeled data and a large amount of unlabeled data. He achieved excellent performance on NID with a small part of labeled data (10%) on IDS2017 and IDS2018 datasets (F1 score: 99.48%). In extreme cases, using only 1% of the data, the F1 value exceeds 97%. At the same time, for current attacks against ML /DL weaknesses, we perform different types of tests by simulating the behavior of the adversary, PDR less than 5%, showing high robustness.
 
-## 5.2 Business Value
+## 4.2 Business Value
 
 With the advent of the "Internet +" era, the Internet of Things is developing rapidly and is gradually penetrating into all fields of life. The scale of IoT devices is showing an explosive growth trend. The era of the Internet of Everything is coming, and the importance of IoT security is becoming more and more prominent in the rapid development of the Internet of Things. According to the business form, the Internet of Things can be divided into three parts: industrial control Internet of Things, vehicle Internet of Things, and smart home Internet of Things, and different business forms have different business requirements for security.
 
@@ -591,7 +487,7 @@ In 2015, two cyber security experts used a man-in-the-middle attack to remotely 
 
 In terms of the share of IDS/IPS (Intrusion Detection/Prevention) market, Hardware accounts for the major part of IDS/IPS, accounting for about 45%, followed by hosted IDS/ISP, with a market share of about 31%, and web-based software accounting for 24%. With the development of the market, the growth rate of web-based IDS/IPS software is getting faster and faster. According to the product structure proportion distribution of Gartner cyber security industry, in 2019, the market size of intrusion detection/prevention equipment in China is about 1.9 billion yuan. The Internet of Things because of its openness, multi-source heterogeneity, ubiquity and other characteristics, the security of the Internet of Things is related to the security of individuals, families, society, and even the country, the emergence of various security threats, but also continue to confirm the Internet of Things network intrusion detection system The necessity.
 
-## 5.3 Outlook of works
+## 4.3 Outlook of works
 
 Ji Xiaoan-IoT Qualitative Intrusion Detection System is an accurate and rapid IoT intrusion detection system with powerful semi-supervised training model support, which can accurately and quickly predict the intrusion behavior of IoT network intrusion behavior; in continuous improvement, we will improve the functions of Ji Xiaoan-IoT Qualitative Intrusion Detection System from the following aspects:
 
@@ -601,19 +497,7 @@ In the architecture deployment, the data interaction between the "cloud layer" a
 
 In the Application Area, the IoT security detection system designed by Ji Xiaoan cyber security experts is suitable for large enterprise-level network architectures and small home intelligent architectures. But not every home network can support servers with high computing power of cloud devices. Therefore, in the subsequent design, we negotiate a larger level system that can separate the Cloud as a Service and interweave many IoT security networks. This makes the training data more independent of the detection module and can be performed on the server cluster, so that you can not change the overall model performance without reducing the hardware consumption.
 
- 
-
- 
-
- 
-
- 
-
- 
-
-
-
-# 6 References
+# 5 References
 
 M. Stoyanova, Y. Nikoloudakis, S. Panagiotakis, E. Pallis, and E. K. Markakis, "A survey on the Internet of Things (IoT) forensics: Challenges, approaches, and open issues," IEEE Commun. Surveys Tuts., vol. 22, no. 2, pp. 1191–1221, 2nd Quart., 2020, doi: 10.1109/COMST.2019.2962586.
 
